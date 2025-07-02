@@ -207,14 +207,14 @@ class HiCacheController:
             self.io_backend = io_backend
 
         # todo: move backend initialization to storage backend module
-        if storage_backend is "file":
+        if storage_backend == "file":
             self.storage_backend = HiCacheFile()
             # tracking prefetch operation progress
             # todo: thread safe data structure
             self.ongoing_prefetch = {}
         else:
             raise NotImplementedError(
-                f"Unsupported storage backend: {self.storage_backend}"
+                f"Unsupported storage backend: {storage_backend}"
             )
 
         self.load_cache_event = load_cache_event

@@ -395,7 +395,7 @@ class HiRadixCache(RadixCache):
 
     def terminate_prefetch(self, req_id: str):
         # todo: sync with TP workers
-        operation_id, last_host_node = self.ongoing_prefetch[req_id]
+        operation_id, last_host_node = self.ongoing_prefetch.pop(req_id)
         fetched_token_ids, host_indices = self.cache_controller.terminate_prefetch(
             operation_id
         )

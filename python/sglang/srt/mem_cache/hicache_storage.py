@@ -79,7 +79,7 @@ class HiCacheFile(HiCacheStorage):
     def get(
         self, key: str, target_location: Optional[torch.Tensor] = None
     ) -> Tensor | None:
-        tensor_path = f"{self.file_path}/{key}.bin"
+        tensor_path = os.path.join(self.file_path, f"{key}.bin")
         try:
             # todo: fixing the target_location logic
             loaded_tensor = torch.load(tensor_path, map_location=target_location)

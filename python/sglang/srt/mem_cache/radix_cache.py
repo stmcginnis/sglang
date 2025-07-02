@@ -74,7 +74,7 @@ class TreeNode:
     def backuped(self):
         return self.host_value is not None
 
-    def last_hash_value(self) -> Optional[int]:
+    def last_hash_value(self) -> Optional[str]:
         """Returns the hash value of the last page in this node."""
         if self.hash_values is None or len(self.hash_values) == 0:
             return None

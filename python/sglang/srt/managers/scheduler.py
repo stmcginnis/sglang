@@ -1225,7 +1225,7 @@ class Scheduler(
                 if (matched_len > 0 and last_hash is not None) or matched_len == 0:
                     new_input_tokens = req.fill_ids[matched_len:]
                     self.tree_cache.prefetch_from_storage(
-                        req.last_host_node, new_input_tokens, last_hash
+                        req.last_host_node, new_input_tokens, req.rid, last_hash
                     )
             self.waiting_queue.append(req)
 
